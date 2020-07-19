@@ -26,10 +26,10 @@ public class SwaggerDocket {
 
     @Bean
     public Docket api() {
-        return new Docket(DocumentationType.SWAGGER_2)
+    	return new Docket(DocumentationType.SWAGGER_2)
                 .select()
                 .apis(buildApiRequestHandler())
-                .paths(PathSelectors.any())
+                .paths(PathSelectors.regex(".*stock-item.*"))
                 .build()
                 .apiInfo(buildApiInfo());
     }
